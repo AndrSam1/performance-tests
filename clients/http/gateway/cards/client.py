@@ -7,7 +7,7 @@ from clients.http.client import HTTPClient
 
 class IssueVirtualCardDict(TypedDict):
     """
-    Структура данных для выпуска физической карты.
+    Структура данных для выпуска виртуальной карты.
     """
     userId: str
     accountId: str
