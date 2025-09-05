@@ -143,8 +143,6 @@ class OperationsGatewayHTTPClient(HTTPClient):
 
     def make_fee_operation(self, card_id: str, account_id: str) -> MakeFeeOperationResponseSchema:
         request = MakeFeeOperationRequestSchema(
-            status="COMPLETED",
-            amount=55.77,
             card_id=card_id,
             account_id=account_id
         )
@@ -153,8 +151,6 @@ class OperationsGatewayHTTPClient(HTTPClient):
 
     def make_top_up_operation(self, card_id: str, account_id: str) -> MakeTopUpOperationResponseSchema:
         request = MakeTopUpOperationRequestSchema(
-            status="COMPLETED",
-            amount=66.44,
             card_id=card_id,
             account_id=account_id
         )
@@ -163,8 +159,6 @@ class OperationsGatewayHTTPClient(HTTPClient):
 
     def make_cashback_operation(self, card_id: str, account_id: str) -> MakeCashbackOperationResponseSchema:
         request = MakeCashbackOperationRequestSchema(
-            status="COMPLETED",
-            amount=22.11,
             card_id=card_id,
             account_id=account_id
         )
@@ -173,8 +167,6 @@ class OperationsGatewayHTTPClient(HTTPClient):
 
     def make_transfer_operation(self, card_id: str, account_id: str) -> MakeTransferOperationResponseSchema:
         request = MakeTransferOperationRequestSchema(
-            status="COMPLETED",
-            amount=88.33,
             card_id=card_id,
             account_id=account_id
         )
@@ -183,8 +175,6 @@ class OperationsGatewayHTTPClient(HTTPClient):
 
     def make_purchase_operation(self, card_id: str, account_id: str) -> MakePurchaseOperationResponseSchema:
         request = MakePurchaseOperationRequestSchema(
-            status="COMPLETED",
-            amount=88.33,
             card_id=card_id,
             account_id=account_id
         )
@@ -193,8 +183,6 @@ class OperationsGatewayHTTPClient(HTTPClient):
 
     def make_bill_payment_operation(self, card_id: str, account_id: str) -> MakeBillPaymentOperationResponseSchema:
         request = MakeBillPaymentOperationRequestSchema(
-            status="COMPLETED",
-            amount=66.22,
             card_id=card_id,
             account_id=account_id
         )
@@ -206,8 +194,6 @@ class OperationsGatewayHTTPClient(HTTPClient):
             account_id: str
     ) -> MakeCashWithdrawalOperationResponseSchema:
         request = MakeCashWithdrawalOperationRequestSchema(
-            status="COMPLETED",
-            amount=77.99,
             card_id=card_id,
             account_id=account_id
         )
