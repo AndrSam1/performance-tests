@@ -199,7 +199,11 @@ class OperationsGatewayHTTPClient(HTTPClient):
         response = self.make_transfer_operation_api(request)
         return MakeTransferOperationResponseSchema.model_validate_json(response.text)
 
-    def make_purchase_operation(self, card_id: str, account_id: str) -> MakePurchaseOperationResponseSchema:
+    def make_purchase_operation(
+            self,
+            card_id: str,
+            account_id: str
+    ) -> MakePurchaseOperationResponseSchema:
         request = MakePurchaseOperationRequestSchema(
             card_id=card_id,
             account_id=account_id
@@ -216,7 +220,8 @@ class OperationsGatewayHTTPClient(HTTPClient):
         return MakeBillPaymentOperationResponseSchema.model_validate_json(response.text)
 
     def make_cash_withdrawal_operation(
-            self, card_id: str,
+            self,
+            card_id: str,
             account_id: str
     ) -> MakeCashWithdrawalOperationResponseSchema:
         request = MakeCashWithdrawalOperationRequestSchema(

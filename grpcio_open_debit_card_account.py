@@ -10,7 +10,7 @@ from contracts.services.gateway.users.users_gateway_service_pb2_grpc import User
 from tools.fakers import fake  # Используем генератор фейковых данных, созданный ранее
 
 # Устанавливаем соединение с gRPC-сервером по адресу localhost:9003
-channel = grpc.insecure_channel("192.168.2.149:9003")
+channel = grpc.insecure_channel("192.168.2.222:9003")
 
 # Создаём gRPC-клиент для UsersGatewayService
 users_gateway_service = UsersGatewayServiceStub(channel)
