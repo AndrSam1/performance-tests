@@ -80,6 +80,15 @@ jobs:
           name: reports
           path: reports
 
+      # 10. Корректно останавливаем docker-контейнеры и удаляем volume-ы (например, temp-файлы)
+      - name: Stop test services
+        if: always()
+        run: |
+          if [ -d "performance-qa-engineer-course" ]; then
+            cd performance-qa-engineer-course
+            docker compose -f docker-compose.ci.yaml down -v
+          fi
+
   publish-report:
     if: always()
     runs-on: ubuntu-latest
@@ -87,13 +96,13 @@ jobs:
     steps:
       # 1. Шаг для получения истории отчётов, если она существует
       - name: Check out repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v4
         with:
           ref: gh-pages
           path: gh-pages
 
       # 2. Шаг для получения артифакта, если он существует
-      - name: Download Allure results
+      - name: Download reports
         uses: actions/download-artifact@v4
         if: always()  # Всегда выполняем, независимо от успеха или неудачи предыдущих шагов
         continue-on-error: true  # Если здесь возникнет ошибка, workflow всё равно продолжит выполнение
@@ -110,9 +119,3 @@ jobs:
           keep_files: true  # Сохраняем предыдущие отчёты
           publish_dir: reports  # Публикуем директорию reports
           publish_branch: gh-pages  # На ветке gh-pages
-
-      # 4. Корректно останавливаем docker-контейнеры и удаляем volume-ы (например, temp-файлы)
-      - name: Stop test services
-        if: always()
-        run: docker compose -f docker-compose.ci.yaml down -v
-        working-directory: performance-qa-engineer-course
